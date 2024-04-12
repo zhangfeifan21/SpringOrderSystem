@@ -3,7 +3,7 @@ package org.zyf.order.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+//import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class OrderlistController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("order:orderlist:list")
+    //@RequiresPermissions("order:orderlist:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = orderlistService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class OrderlistController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("order:orderlist:info")
+    //@RequiresPermissions("order:orderlist:info")
     public R info(@PathVariable("id") Long id){
 		OrderlistEntity orderlist = orderlistService.getById(id);
 
@@ -58,7 +58,7 @@ public class OrderlistController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("order:orderlist:save")
+    //@RequiresPermissions("order:orderlist:save")
     public R save(@RequestBody OrderlistEntity orderlist){
 		orderlistService.save(orderlist);
 
@@ -69,7 +69,7 @@ public class OrderlistController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("order:orderlist:update")
+    //@RequiresPermissions("order:orderlist:update")
     public R update(@RequestBody OrderlistEntity orderlist){
 		orderlistService.updateById(orderlist);
 
@@ -80,7 +80,7 @@ public class OrderlistController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("order:orderlist:delete")
+    //@RequiresPermissions("order:orderlist:delete")
     public R delete(@RequestBody Long[] ids){
 		orderlistService.removeByIds(Arrays.asList(ids));
 
