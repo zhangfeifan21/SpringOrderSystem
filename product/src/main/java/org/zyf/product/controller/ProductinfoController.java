@@ -31,6 +31,12 @@ public class ProductinfoController {
     @Autowired
     private ProductinfoService productinfoService;
 
+    @RequestMapping("/orderProduct/list")
+    public R orderProducts(){
+        ProductinfoEntity productinfoEntity = new ProductinfoEntity();
+        productinfoEntity.setProductName("烤冷面");
+        return R.ok().put("products", Arrays.asList(productinfoEntity));
+    }
     /**
      * 列表
      */

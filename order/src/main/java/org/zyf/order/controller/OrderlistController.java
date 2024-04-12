@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.zyf.order.entity.OrderlistEntity;
+import org.zyf.order.feign.ProductFeignService;
 import org.zyf.order.service.OrderlistService;
 import org.zyf.common.utils.PageUtils;
 import org.zyf.common.utils.R;
@@ -30,6 +31,19 @@ import org.zyf.common.utils.R;
 public class OrderlistController {
     @Autowired
     private OrderlistService orderlistService;
+
+    @Autowired
+    ProductFeignService productFeignService;
+
+    @RequestMapping("/products")
+    public R test(){
+        OrderlistEntity orderlistEntity = new OrderlistEntity();
+        orderlistEntity.setOrderId(1L);
+
+        R orderproduct = productFeignService.orderProducts();
+
+        return R.ok().put("order", orderlistEntity).put("product", orderproduct.get("products"));
+    }
 
     /**
      * 列表
