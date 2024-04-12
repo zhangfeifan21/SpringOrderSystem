@@ -8,7 +8,7 @@
 
 package org.zyf.common.xss;
 
-import io.renren.common.exception.RRException;
+import org.zyf.common.utils.RRException;
 import org.apache.commons.lang.StringUtils;
 
 /**

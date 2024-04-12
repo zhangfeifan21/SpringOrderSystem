@@ -14,12 +14,12 @@ class ProductApplicationTests {
 	@Test
 	void contextLoads() {
 		ProductinfoEntity productEntity = new ProductinfoEntity();
-//		productEntity.setProductName("螺蛳粉");
-//		productinfoService.save(productEntity);
-//		System.out.println("保存成功。。。");
 		productEntity.setProductName("热干面");
+		productinfoService.save(productEntity);
+		System.out.println("保存成功。。。");
+//		productEntity.setProductName("热干面");
 
-		productinfoService.updateById(productEntity);
+//		productinfoService.updateById(productEntity);
 	}
 
 }
